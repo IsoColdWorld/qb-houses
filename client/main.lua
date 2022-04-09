@@ -956,6 +956,11 @@ exports('isNearHouses', isNearHouses)
 
 -- Events
 
+RegisterNetEvent('qb-houses:client:deletehouses', function(selectedHouse)
+    Config.Houses[selectedHouse.name] = nil
+    SetClosestHouse()
+end)
+
 RegisterNetEvent('qb-houses:server:sethousedecorations', function(house, decorations)
 	Config.Houses[house].decorations = decorations
 	if IsInside and ClosestHouse == house then
