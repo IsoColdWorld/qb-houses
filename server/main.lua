@@ -544,7 +544,7 @@ QBCore.Functions.CreateCallback('qb-houses:server:getHouseKeyHolders', function(
     end
 end)
 
-QBCore.Functions.CreateCallback('qb-phone:server:TransferCid', function(source, cb, NewCid, house)
+QBCore.Functions.CreateCallback('qs-smartphone:server:TransferCid', function(source, cb, NewCid, house)
     local result = exports.oxmysql:executeSync('SELECT * FROM players WHERE citizenid = ?', {NewCid})
     if result[1] then
         local HouseName = house.name
@@ -621,7 +621,7 @@ QBCore.Functions.CreateCallback('qb-houses:server:getSavedOutfits', function(sou
     end
 end)
 
-QBCore.Functions.CreateCallback('qb-phone:server:GetPlayerHouses', function(source, cb)
+QBCore.Functions.CreateCallback('qs-smartphone:server:GetPlayerHouses', function(source, cb)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local MyHouses = {}
@@ -689,7 +689,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPlayerHouses', function(sour
     end
 end)
 
-QBCore.Functions.CreateCallback('qb-phone:server:GetHouseKeys', function(source, cb)
+QBCore.Functions.CreateCallback('qs-smartphone:server:GetHouseKeys', function(source, cb)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local MyKeys = {}
@@ -716,7 +716,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetHouseKeys', function(source,
     cb(MyKeys)
 end)
 
-QBCore.Functions.CreateCallback('qb-phone:server:MeosGetPlayerHouses', function(source, cb, input)
+QBCore.Functions.CreateCallback('qs-smartphone:server:MeosGetPlayerHouses', function(source, cb, input)
     if input then
         local search = escape_sqli(input)
         local searchData = {}
